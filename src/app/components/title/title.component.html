@@ -1,0 +1,29 @@
+<div class="main">
+  <h1 class="tui-island__title">Currency {{ baseCurrency }}</h1>
+  <span (tuiActiveZoneChange)="onActiveZone($any($event))">
+    <button
+      class="tui-space_left-3"
+      tuiButton
+      size="s"
+      appearance="secondary"
+      [tuiDropdown]="dropdownContent"
+      [tuiDropdownManual]="expanded"
+      (tuiObscured)="onObscured($any($event))"
+      (click)="toggle()">
+      <tui-svg src="{{ expanded ? 'tuiIconMinus' : 'tuiIconPlus' }}"> </tui-svg>
+    </button>
+    <ng-template #dropdownContent>
+      <tui-data-list
+        role="menu"
+        tuiDataListDropdownManager
+        class="context-menu">
+        <button
+          *ngFor="let currency of extraCurrencies"
+          tuiOption
+          (click)="toggle(currency)">
+          {{ currency }}
+        </button>
+      </tui-data-list>
+    </ng-template>
+  </span>
+</div>

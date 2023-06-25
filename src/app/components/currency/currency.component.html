@@ -1,0 +1,41 @@
+<div class="tui-space_bottom-3 wrapper">
+  <tui-island>
+    <div [style.--tui-skeleton-radius.px]="10" class="tui-island__content">
+      <div class="main">
+        <div class="tui-space_right-3">
+          <p [class.tui-skeleton]="isLoading" class="tui-island__title">
+            {{ currency.name }}
+          </p>
+        </div>
+        <div class="values">
+          <div class="tui-space_right-3">
+            <p [class.tui-skeleton]="isLoading" class="tui-island__paragraph">
+              {{ currency.value | number : '1.2-2' }} ₽
+            </p>
+          </div>
+          <div class="difference">
+            <tui-svg
+              [class.tui-skeleton]="isLoading"
+              class="tui-space_right-2"
+              style="
+            {{
+                currency.difference > 0
+                  ? 'color: var(--tui-positive);'
+                  : 'color: var(--tui-negative);'
+              }}"
+              src="{{
+                currency.difference === 0
+                  ? ''
+                  : currency.difference > 0
+                  ? 'tuiIconArrowUpRightLarge'
+                  : 'tuiIconArrowDownRightLarge'
+              }}"></tui-svg>
+            <p [class.tui-skeleton]="isLoading" class="tui-island__paragraph">
+              {{ currency.difference | number : '1.2-2' }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </tui-island>
+</div>

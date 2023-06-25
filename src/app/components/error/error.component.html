@@ -1,0 +1,8 @@
+<tui-island
+  *ngIf="errorService.error$ | async as error"
+  class="error tui-space_bottom-6 tui-space_top-6">
+  <h1 class="tui-island__title">⚰️ Error</h1>
+  <p class="tui-island__paragraph">
+    {{ error }}
+  </p>
+</tui-island>
