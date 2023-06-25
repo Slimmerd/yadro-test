@@ -20,8 +20,7 @@ export class RateService {
   constructor(private http: HttpClient, private errorService: ErrorService) {}
 
   private currencies$ = new BehaviorSubject(['USD', 'EUR', 'GBP']);
-  //   private apiKey = 'DNHQ5IEUSmw83D16gqh6i4ujRIeMZYvM'
-  private apiKey = '';
+  private apiKey = 'rCC4QBD1Gjli1EBJX0q6LKzUNqUKZyMi';
 
   get(): Observable<IRate> {
     return this.currencies$.pipe(
